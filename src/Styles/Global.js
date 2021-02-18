@@ -9,6 +9,12 @@ export default createGlobalStyle`
   }
 
   body{
-
+    font-family:'Roboto'
   }
+
+  button{
+    cursor:pointer
+  }
+
+
 `;
