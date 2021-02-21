@@ -114,15 +114,20 @@ export const ContainerPT2 = styled.div`
 `;
 
 export const ContainerPT3 = styled.div`
- 
-  div{ 
-    width: 100%;
-    display: flex;
-  }
-  span{
-    flex-direction: row;
-    justify-content: space-between;
-  }
+width: 100%;
+display: flex;
+align-items:center;
+div{ 
+  align-items:center;
+  width: 100%;
+  display: flex;
+}
+span{
+  flex-wrap: wrap;
+}
+div.separa{
+  margin-left:10px;
+}
 `;
 
 export const RadioButtonDiv = styled.div`

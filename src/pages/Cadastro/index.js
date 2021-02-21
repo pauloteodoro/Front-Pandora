@@ -78,10 +78,12 @@ export default function index() {
               titulo="Senha"
               placeholder="Digite sua senha"
             />
-            <InputPandoraMedio
-              titulo="Confirmar senha"
-              placeholder="Confirme a senha"
-            />
+            <div className="separa">
+              <InputPandoraMedio
+                titulo="Confirmar senha"
+                placeholder="Confirme a senha"
+              />
+            </div>
           </div>
         </ContainerPT3>
 
