@@ -20,29 +20,27 @@ export const Inf = styled.div`
 `;
 
 export const Logo = styled.div`
-  height: 60px;
+  height: 70px;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: 0.2px solid #b38c89;
-
-  img {
-    width: 140px;
-    align-items: center;
-  }
+  border-bottom: 0.2px solid black;
+`;
+export const ImgLogo = styled.div`
+ 
 `;
 
 export const CaixaLogin = styled.div`
   display: flex;
   flex-direction: column;
   background: #fff4f2;
-  max-width: 400px;
+  max-width: 500px;
   align-items: center;
   border-radius: 20px;
   border: 0.5px solid #b38c89;
-  margin-top: 40px;
-  height: 400px;
+  margin-top: 30px;
+  height: 550px;
   padding-left: 50px;
   padding-right: 50px;
   transition: background-color 0.2s;
@@ -54,7 +52,7 @@ export const CaixaLogin = styled.div`
     color: white;
     border-radius: 50px;
     border: none;
-    margin-top: 10px;
+    margin-top: 20px;
 
     &:hover {
       background: ${shade(0.2, "#b38c89")};
@@ -65,9 +63,10 @@ export const CaixaLogin = styled.div`
     color: gray;
     text-decoration: none;
     font-size: 12px;
+    margin: 5px;
 
     &:hover {
-      color: ${shade(0.2, "#000")};
+      color: ${shade(0.2, "#D66660")};
     }
   }
 `;
@@ -78,12 +77,27 @@ export const CaixaTitulos = styled.div`
   div {
     text-align: center;
     color: #d66660;
-    margin-top: 40px;
-    margin-bottom: 10px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 18px;
   }
 
   span {
-    font-size: 10px;
-    margin-top: 40px;
+    font-size: 15px;
+    margin-top: 30px;
+    line-height: 1.5;
   }
 `;
+
+export const TitulosPequenos = styled.div`
+ div{ 
+  text-align: center;
+  justify-content: left;
+  font-size: 12px;
+  margin-top: 40px;
+  color: ${shade(0.2, "#D66660")};
+ }
+  
+
+`;
+

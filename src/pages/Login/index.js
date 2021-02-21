@@ -1,13 +1,10 @@
 import React from "react";
-
 import { Link } from "react-router-dom";
-
 import InputPandora from "../../components/InputPandora";
-import Pandora from "../../assets/Pandora.png";
-
+import LOGO from "../../assets/LOGO.png";
 import { FiMail, FiLock } from "react-icons/fi";
 
-import { Container, CaixaLogin, CaixaTitulos, Inf, Logo } from "./styles";
+import { Container, CaixaLogin, CaixaTitulos, Inf, Logo, TitulosPequenos, ImgLogo } from "./styles";
 
 export default function index() {
   return (
@@ -18,17 +15,19 @@ export default function index() {
       </Inf> */}
 
       <Logo>
-        <img src={Pandora} alt="pandora" />
+
+        <ImgLogo> <img src={LOGO} alt="pandora" /></ImgLogo>
       </Logo>
 
       <CaixaLogin>
         <CaixaTitulos>
-          <div>JÁ TEM UMA CONTA PANDORA ?</div>
+          <div>JÁ TEM UMA CONTA PANDORA?</div>
           <span>
-            Faça seu login agora para acompanhar seus pedido, ter acesso a
+            faça seu login agora para acompanhar seus pedido, ter acesso a
             ofertas exclusicas e muito mais.
           </span>
         </CaixaTitulos>
+
         <InputPandora
           titulo="E-mail"
           placeholder="Digite seu login"
@@ -38,12 +37,21 @@ export default function index() {
         <InputPandora
           icon={FiLock}
           titulo="Senha"
+          type="password"
+          required
           placeholder="Digite sua senha"
         />
 
         <a href="forgot">Esqueci minha senha</a>
+        <a href="/cadastro">não tem senha? cadastre agora</a>
+
 
         <button>ENTRAR</button>
+
+
+        <TitulosPequenos>
+          <div><span>------------------------------------- É novo por aqui? -------------------------------------</span></div>
+        </TitulosPequenos>
 
         <Link to="/cadastro">
           <button>CRIAR CONTA</button>

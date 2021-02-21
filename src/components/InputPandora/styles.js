@@ -5,20 +5,22 @@ export const Container = styled.div`
   flex-direction: column;
   margin-top: 20px;
   width: 100%;
+
   div {
     font-size: 12px;
   }
 `;
 
 export const ContainerInput = styled.div`
-  font-size: 12px;
+  
   margin-bottom: 5px;
   text-align: left;
   display: flex;
   align-items: center;
   background-color: white;
   padding-left: 10px;
-  border: 1px solid white;
+  border: 0.5px solid lightgrey;
+  height: 40px;
 
   ${(props) =>
     props.focus &&
@@ -34,7 +36,7 @@ export const ContainerInput = styled.div`
   }
 
   input::placeholder {
-    font-size: 10px;
+    font-size: 14px;
     padding-left: 10px;
   }
 `;
