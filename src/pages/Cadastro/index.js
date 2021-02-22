@@ -30,7 +30,7 @@ export default function index() {
           "Content-Type": "multipart/form-data",
         },
       })
-      .then((response) => {});
+      .then((response) => { });
   }
 
   return (
@@ -126,8 +126,9 @@ export default function index() {
             />
           </div>
         </ContainerPT3>
-
-        <button onClick={cadastrar}>CADASTRE-SE</button>
+        <Link to="/cadastrop2">
+          <button onClick={cadastrar}>CADASTRE-SE</button>
+        </Link>
       </CaixaCadastro>
     </Container>
   );
