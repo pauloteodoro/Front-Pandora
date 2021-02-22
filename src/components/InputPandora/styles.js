@@ -12,7 +12,6 @@ export const Container = styled.div`
 `;
 
 export const ContainerInput = styled.div`
-  
   margin-bottom: 5px;
   text-align: left;
   display: flex;
@@ -21,6 +20,7 @@ export const ContainerInput = styled.div`
   padding-left: 10px;
   border: 0.5px solid lightgrey;
   height: 40px;
+  border-radius: 5px;
 
   ${(props) =>
     props.focus &&
@@ -33,6 +33,7 @@ export const ContainerInput = styled.div`
     flex: 1;
     height: 30px;
     padding-left: 10px;
+    width: 100%;
   }
 
   input::placeholder {

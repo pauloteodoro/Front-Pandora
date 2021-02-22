@@ -27,9 +27,7 @@ export const Logo = styled.div`
   justify-content: center;
   border-bottom: 0.2px solid black;
 `;
-export const ImgLogo = styled.div`
- 
-`;
+export const ImgLogo = styled.div``;
 
 export const CaixaLogin = styled.div`
   display: flex;
@@ -44,6 +42,10 @@ export const CaixaLogin = styled.div`
   padding-left: 50px;
   padding-right: 50px;
   transition: background-color 0.2s;
+
+  @media (max-width: 768px) {
+    width: 80%;
+  }
 
   button {
     width: 150px;
@@ -90,14 +92,11 @@ export const CaixaTitulos = styled.div`
 `;
 
 export const TitulosPequenos = styled.div`
- div{ 
-  text-align: center;
-  justify-content: left;
-  font-size: 12px;
-  margin-top: 40px;
-  color: ${shade(0.2, "#D66660")};
- }
-  
-
+  div {
+    text-align: center;
+    justify-content: left;
+    font-size: 12px;
+    margin-top: 40px;
+    color: ${shade(0.2, "#D66660")};
+  }
 `;
-

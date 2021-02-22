@@ -27,11 +27,9 @@ export const Logo = styled.div`
   justify-content: center;
   border-bottom: 0.2px solid black;
 `;
-export const ImgLogo = styled.div`
+export const ImgLogo = styled.div``;
 
-`;
-
-export const CaixaCadastro = styled.div`
+export const CaixaCadastro = styled.form`
   display: flex;
   flex-direction: column;
   background: #fff4f2;
@@ -45,9 +43,13 @@ export const CaixaCadastro = styled.div`
   padding-right: 50px;
   transition: background-color 0.2s;
 
+  @media (max-width: 768px) {
+    width: 80%;
+  }
+
   button {
     width: 150px;
-    height: 30px;
+    height: 50px;
     background: #b38c89;
     color: white;
     border-radius: 50px;
@@ -72,62 +74,59 @@ export const CaixaCadastro = styled.div`
 `;
 
 export const CaixaTitulos = styled.div`
-line-height: 0.8;
-text-align: center;
-div {
+  line-height: 0.8;
   text-align: center;
-  color: #d66660;
-  margin-top: 30px;
-  margin-bottom: 20px;
-  font-size: 18px;
-}
+  div {
+    text-align: center;
+    color: #d66660;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
 
-span {
-  font-size: 15px;
-  margin-top: 30px;
-  line-height: 1.5;
-}
+  span {
+    font-size: 15px;
+    margin-top: 30px;
+    line-height: 1.5;
+  }
 `;
 
 export const TitulosPequenos = styled.div`
- div{ 
-  font-size: 12px;
-  margin-top: 15px;
-  color: ${shade(0.2, "#D66660")}; 
- }
+  div {
+    font-size: 12px;
+    margin-top: 15px;
+    color: ${shade(0.2, "#D66660")};
+  }
 `;
 
 export const ContainerPT2 = styled.div`
   width: 100%;
   display: flex;
-  align-items:center;
+  align-items: center;
 
-  div{ 
-    align-items:center;
+  div {
+    align-items: center;
     width: 100%;
     display: flex;
   }
-  span{
-
+  span {
     flex-wrap: wrap;
   }
 `;
 
 export const ContainerPT3 = styled.div`
- 
-  div{ 
+  div {
     width: 100%;
     display: flex;
   }
-  span{
+  span {
     flex-direction: row;
     justify-content: space-between;
   }
 `;
 
 export const RadioButtonDiv = styled.div`
- 
-  div{ 
+  div {
     display: flex;
     flex-direction: column;
   }

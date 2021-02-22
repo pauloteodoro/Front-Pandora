@@ -4,7 +4,15 @@ import InputPandora from "../../components/InputPandora";
 import LOGO from "../../assets/LOGO.png";
 import { FiMail, FiLock } from "react-icons/fi";
 
-import { Container, CaixaLogin, CaixaTitulos, Inf, Logo, TitulosPequenos, ImgLogo } from "./styles";
+import {
+  Container,
+  CaixaLogin,
+  CaixaTitulos,
+  Inf,
+  Logo,
+  TitulosPequenos,
+  ImgLogo,
+} from "./styles";
 
 export default function index() {
   return (
@@ -15,8 +23,10 @@ export default function index() {
       </Inf> */}
 
       <Logo>
-
-        <ImgLogo> <img src={LOGO} alt="pandora" /></ImgLogo>
+        <ImgLogo>
+          {" "}
+          <img src={LOGO} alt="pandora" />
+        </ImgLogo>
       </Logo>
 
       <CaixaLogin>
@@ -32,25 +42,28 @@ export default function index() {
           titulo="E-mail"
           placeholder="Digite seu login"
           icon={FiMail}
+          sizeValue={12}
+          sizeMax={12}
         />
 
         <InputPandora
           icon={FiLock}
           titulo="Senha"
           type="password"
-          required
           placeholder="Digite sua senha"
+          sizeValue={12}
+          sizeMax={12}
         />
 
         <a href="forgot">Esqueci minha senha</a>
         <a href="/cadastro">não tem senha? cadastre agora</a>
 
-
         <button>ENTRAR</button>
 
-
         <TitulosPequenos>
-          <div><span>------------------------------------- É novo por aqui? -------------------------------------</span></div>
+          <div>
+            <span>------- É novo por aqui? -------</span>
+          </div>
         </TitulosPequenos>
 
         <Link to="/cadastro">

@@ -2,3 +2,54 @@
   text-align: center;
 }
 
+.field .field-padding {
+  padding: 0px 5px;
+}
+
+.field-8 {
+  width: 8.333333333%;
+}
+
+.field-12 {
+  width: 12.5%;
+}
+
+.field-16 {
+  width: 16.66666667%;
+}
+
+.field-25 {
+  width: 25%;
+}
+
+.field-33 {
+  width: 33.33333333%;
+}
+
+.field-37 {
+  width: 37.5%;
+}
+
+.field-41 {
+  width: 41.66666667%;
+}
+
+.field-50 {
+  width: 50%;
+}
+
+.field-58 {
+  width: 58.33333333%;
+}
+
+.field-66 {
+  width: 66.66666667%;
+}
+
+.field-75 {
+  width: 75%;
+}
+
+.field-100 {
+  width: 100%;
+}
