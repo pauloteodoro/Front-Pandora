@@ -33,7 +33,7 @@ export const CaixaCadastro = styled.form`
   display: flex;
   flex-direction: column;
   background: #fff4f2;
-  max-width: 500px;
+  max-width: 800px;
   align-items: center;
   border-radius: 20px;
   border: 0.5px solid #b38c89;
