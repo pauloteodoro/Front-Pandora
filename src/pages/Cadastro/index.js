@@ -102,7 +102,7 @@ export default function index() {
             sizeValue={6}
           />
           <InputPandora
-            titulo="dataNascimento"
+            titulo="Data nascimento"
             type={"date"}
             sizeMax={12}
             sizeValue={6}
