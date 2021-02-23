@@ -71,8 +71,7 @@ export default function index() {
           />
 
           <SelectPandora
-            titulo="Nome completo"
-            placeholder="digite seu nome completo"
+            titulo="Sexo"
             sizeMax={12}
             sizeValue={4}
             dados={sexo}
