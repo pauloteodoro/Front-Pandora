@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import SelectPandora from "../../components/SelectPandora";
 import InputPandora from "../../components/InputPandora";
 import LOGO from "../../assets/LOGO.png";
-import api from "../../services";
 import {
   Container,
   CaixaCadastro,
@@ -36,12 +35,18 @@ export default function index() {
     { id: 6, nome: "chácara" },
   ];
 
+  const bandeirasCartao = [
+    { id: 1, nome: "Visa" },
+    { id: 2, nome: "Master card" },
+    { id: 3, nome: "Elo" },
+  ];
+
   return (
     <Container>
-      {/* <Inf>
+      <Inf>
         Devolução grátis em até 25 dias | 40% de desconto em fretes acima de R$
         150,00 | Parcelamento em até 6x no cartão
-      </Inf> */}
+      </Inf>
       <Logo>
         <ImgLogo>
           <img src={LOGO} alt="pandora" />
@@ -55,7 +60,7 @@ export default function index() {
         <CaixaTitulos>
           <div>FINALIZE SUA CONTA PANDORA</div>
           <span>
-            tenha acesso a promoções exclusivas, fique por dentro das novidades
+            Tenha acesso a promoções exclusivas, fique por dentro das novidades
             e acompanhe suas compras.
           </span>
         </CaixaTitulos>
@@ -113,55 +118,43 @@ export default function index() {
               titulo="Cidade"
               placeholder="digite a cidade"
               sizeMax={12}
-              sizeValue={3}
+              sizeValue={6}
               name="cidadeEndereco"
             />
             <InputPandora
               titulo="Estado"
               placeholder="digite o estado"
               sizeMax={12}
-              sizeValue={3}
+              sizeValue={6}
               name="estadoEndereco"
             />
           </Grupo01>
         </EnderecoCobranca>
         <EnderecoEntrega>
           <Titulo>Dados Endereço de Entrega</Titulo>
+
           <Grupo01>
             <SelectPandora
               titulo="Tipo de Residencia"
-              option="Sei la"
               sizeMax={12}
               sizeValue={4}
               dados={tipoEndereco}
+              name="tipoResidencia"
             />
 
-            <InputPandora
+            <SelectPandora
               titulo="Tipo de logradouro"
-              placeholder="digite o tipo"
               sizeMax={12}
-              sizeValue={4}
+              sizeValue={3}
+              dados={tiposLogradouros}
+              name="tipoLogradouro"
             />
-
             <InputPandora
               titulo="Logradouro"
               placeholder="logradouro"
               sizeMax={12}
               sizeValue={6}
-            />
-          </Grupo01>
-          <Grupo01>
-            <InputPandora
-              titulo="Bairro"
-              placeholder="digite o bairro"
-              sizeMax={12}
-              sizeValue={3}
-            />
-            <InputPandora
-              titulo="CEP"
-              placeholder="digite o CEP"
-              sizeMax={12}
-              sizeValue={3}
+              name="logradouro"
             />
           </Grupo01>
           <Grupo01>
@@ -170,27 +163,41 @@ export default function index() {
               placeholder="digite o numero"
               sizeMax={12}
               sizeValue={3}
+              name="numeroEndereco"
             />
+            <InputPandora
+              titulo="Bairro"
+              placeholder="digite o bairro"
+              sizeMax={12}
+              sizeValue={6}
+              name="bairroEndereco"
+            />
+            <InputPandora
+              titulo="CEP"
+              placeholder="digite o CEP"
+              sizeMax={12}
+              sizeValue={3}
+              name="cepEndereco"
+            />
+          </Grupo01>
+          <Grupo01>
             <InputPandora
               titulo="Cidade"
               placeholder="digite a cidade"
               sizeMax={12}
-              sizeValue={3}
+              sizeValue={6}
+              name="cidadeEndereco"
             />
             <InputPandora
               titulo="Estado"
               placeholder="digite o estado"
               sizeMax={12}
-              sizeValue={3}
+              sizeValue={6}
+              name="estadoEndereco"
             />
-            {/* <InputPandora
-              titulo="País"
-              placeholder="digite o país"
-              sizeMax={12}
-              sizeValue={3}
-            /> */}
           </Grupo01>
         </EnderecoEntrega>
+
         <CartaoCredio>
           <Titulo>Dados do seu cartão de crédito</Titulo>
           <InputPandora
@@ -208,7 +215,7 @@ export default function index() {
             />
             <SelectPandora
               titulo="Bandeira"
-              option="Sei la"
+              dados={bandeirasCartao}
               sizeMax={12}
               sizeValue={3}
             />

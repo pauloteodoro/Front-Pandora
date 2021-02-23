@@ -49,18 +49,21 @@ export const CaixaCadastro = styled.div`
   padding-left: 50px;
   padding-right: 50px;
   transition: background-color 0.2s;
+
+  margin-bottom: 20px;
   @media (max-width: 100%) {
     width: 90%;
   }
 
   button {
-    width: 150px;
-    height: 50px;
+    max-width: 200px;
+    height: 30px;
     background: #b38c89;
     color: white;
     border-radius: 50px;
     border: none;
-    margin-top: 0px;
+    padding: 0 10px;
+
     &:hover {
       background: ${shade(0.2, "#b38c89")};
     }
