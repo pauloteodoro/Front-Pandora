@@ -141,7 +141,7 @@ export default function index() {
           ></input>
           <span style={{ marginLeft: "10px" }}>
             {" "}
-            Usar mesmo endereço de combrança como endereço de entrega
+            Usar mesmo endereço de cobrança como endereço de entrega
           </span>
         </div>
 
