@@ -31,21 +31,21 @@ export const Logo = styled.div`
 export const ImgLogo = styled.div``;
 
 export const MensagemInicial = styled.div`
-    width: 100%;
-    height: 40px;
-    margin-top: 20px;
-    text-align: center;
+  width: 100%;
+  height: 40px;
+  margin-top: 20px;
+  text-align: center;
 `;
 
-export const CaixaCadastro = styled.form`
+export const CaixaCadastro = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 1100px;
+  max-width: 100%;
   align-items: center;
   border-radius: 5px;
   border: 0.5px solid lightgrey;
   margin-top: 30px;
-  height: 1350px;
+  height: auto;
   padding-left: 50px;
   padding-right: 50px;
   transition: background-color 0.2s;
@@ -96,40 +96,37 @@ export const CaixaTitulos = styled.div`
 `;
 
 export const EnderecoCobranca = styled.div`
-    width: 100%;    
-    border: 0.2px solid lightgrey;
-    margin-top: 50px;
+  width: 100%;
+  border: 0.2px solid lightgrey;
+  margin-top: 50px;
 `;
 export const Grupo01 = styled.div`
-    margin-top: 5px;
-    display: flex;
-    flex-direction: row;
-    width: 100%;    
-    justify-content: space-between;
+  margin-top: 5px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
 `;
 
 export const EnderecoEntrega = styled.div`
-    width: 100%;    
-    border: 0.2px solid lightgrey;
-    margin-top: 50px;
-  
+  width: 100%;
+  border: 0.2px solid lightgrey;
+  margin-top: 50px;
 `;
 export const CartaoCredio = styled.div`
-    width: 100%;    
-    border: 0.2px solid lightgrey;
-    margin-top: 50px;
-  
+  width: 100%;
+  border: 0.2px solid lightgrey;
+  margin-top: 50px;
 `;
 
 export const Titulo = styled.div`
-    width: 33%;    
-    font-size: 15px;
-    color: #d66660;
-    position: relative;
-    top: -10px;
-    left: 10px;
-    background-color:#ffffff;
-  
+  width: 33%;
+  font-size: 15px;
+  color: #d66660;
+  position: relative;
+  top: -10px;
+  left: 10px;
+  background-color: #ffffff;
 `;
 export const ContainerPT2 = styled.div`
   width: 100%;

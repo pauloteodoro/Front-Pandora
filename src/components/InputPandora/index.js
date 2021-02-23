@@ -10,6 +10,7 @@ export default function index({
   icon: Icon,
   sizeValue,
   sizeMax,
+  name,
 }) {
   const [focus, setFocus] = useState(false);
 

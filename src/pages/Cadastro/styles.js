@@ -29,7 +29,7 @@ export const Logo = styled.div`
 `;
 export const ImgLogo = styled.div``;
 
-export const CaixaCadastro = styled.form`
+export const CaixaCadastro = styled.div`
   display: flex;
   flex-direction: column;
   background: #fff4f2;
@@ -128,6 +128,6 @@ export const ContainerPT3 = styled.div`
 export const RadioButtonDiv = styled.div`
   div {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
   }
 `;

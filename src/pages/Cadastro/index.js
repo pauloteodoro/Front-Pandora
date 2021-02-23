@@ -1,12 +1,9 @@
 import React, { useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import InputPandora from "../../components/InputPandora";
 import InputPandoraMedio from "../../components/InputPandoraMedio";
 import RadioButton from "../../components/RadioButton";
 import LOGO from "../../assets/LOGO.png";
-import { FiMail, FiLock } from "react-icons/fi";
-import api from "../../services";
-
 import {
   Container,
   CaixaCadastro,
@@ -21,16 +18,21 @@ import {
 
 export default function index() {
   const refFormulario = useRef();
+  const history = useHistory();
 
-  function cadastrar() {
-    var formData = new FormData(refFormulario.current);
-    api
-      .post("url/endpoint", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      })
-      .then((response) => { });
+  // function cadastrar() {
+  //   var formData = new FormData(refFormulario.current);
+  //   api
+  //     .post("url/endpoint", formData, {
+  //       headers: {
+  //         "Content-Type": "multipart/form-data",
+  //       },
+  //     })
+  //     .then((response) => { });
+  // }
+
+  function handleTelaCadastroP() {
+    history.push("/CadastroP2");
   }
 
   return (
@@ -70,40 +72,26 @@ export default function index() {
           sizeValue={12}
         />
 
-        <InputPandora
+        {/* <InputPandora
           titulo="CPF"
           placeholder="999.999.999-99"
           sizeMax={12}
           sizeValue={12}
-        />
+        /> */}
 
-        <div className="form-row">
+        <div style={{ display: "flex", width: "100vh" }}>
           <InputPandora
             titulo="CPF"
             placeholder="999.999.999-99"
             sizeMax={12}
             sizeValue={6}
           />
-
-          <RadioButtonDiv>
-            <div>
-              <RadioButton
-                titulo="Feminino"
-                type="radio"
-                name="Faminino"
-                value="feminino"
-                id="radio-feminino"
-              />
-
-              <RadioButton
-                titulo="Masculino"
-                type="radio"
-                name="masculino"
-                value="masculino"
-                id="radio-masculino"
-              />
-            </div>
-          </RadioButtonDiv>
+          <InputPandora
+            titulo="dataNascimento"
+            type={"date"}
+            sizeMax={12}
+            sizeValue={6}
+          />
         </div>
 
         {/* <ContainerPT2>
@@ -117,7 +105,7 @@ export default function index() {
           </div>
         </ContainerPT2>
  */}
-        <ContainerPT3>
+        {/* <ContainerPT3>
           <div>
             <InputPandoraMedio titulo="Senha" placeholder="Digite sua senha" />
             <InputPandoraMedio
@@ -125,10 +113,26 @@ export default function index() {
               placeholder="Confirme a senha"
             />
           </div>
-        </ContainerPT3>
-        <Link to="/cadastrop2">
-          <button onClick={cadastrar}>CADASTRE-SE</button>
-        </Link>
+        </ContainerPT3> */}
+
+        <div style={{ display: "flex", width: "100vh" }}>
+          <InputPandora
+            titulo="Senha"
+            sizeMax={12}
+            sizeValue={6}
+            type="password"
+            name="senha"
+          />
+          <InputPandora
+            titulo="Confirmação de senha"
+            type={"password"}
+            sizeMax={12}
+            sizeValue={6}
+            name="confirmacaoSenha"
+          />
+        </div>
+
+        <button onClick={handleTelaCadastroP}>CADASTRE-SE</button>
       </CaixaCadastro>
     </Container>
   );
