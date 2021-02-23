@@ -50,8 +50,6 @@ export const CaixaCadastro = styled.div`
   padding-right: 50px;
   transition: background-color 0.2s;
 
-  background: #fff4f2;
-
   margin-bottom: 20px;
   @media (max-width: 100%) {
     width: 90%;
