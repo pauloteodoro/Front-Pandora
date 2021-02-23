@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import SelectPandora from "../../components/SelectPandora";
 import InputPandora from "../../components/InputPandora";
@@ -40,6 +40,8 @@ export default function index() {
     { id: 2, nome: "Master card" },
     { id: 3, nome: "Elo" },
   ];
+
+  const [mesmoEndereco, setMesmoEndereco] = useState(false);
 
   return (
     <Container>
@@ -130,73 +132,90 @@ export default function index() {
             />
           </Grupo01>
         </EnderecoCobranca>
-        <EnderecoEntrega>
-          <Titulo>Dados Endereço de Entrega</Titulo>
 
-          <Grupo01>
-            <SelectPandora
-              titulo="Tipo de Residencia"
-              sizeMax={12}
-              sizeValue={4}
-              dados={tipoEndereco}
-              name="tipoResidencia"
-            />
+        <div style={{ margin: "10px" }}>
+          <input
+            type="checkbox"
+            value={mesmoEndereco}
+            onChange={() => setMesmoEndereco(!mesmoEndereco)}
+          ></input>
+          <span>
+            {" "}
+            Usar mesmo endereço de combrança como endereço de entrega
+          </span>
+        </div>
 
-            <SelectPandora
-              titulo="Tipo de logradouro"
-              sizeMax={12}
-              sizeValue={3}
-              dados={tiposLogradouros}
-              name="tipoLogradouro"
-            />
-            <InputPandora
-              titulo="Logradouro"
-              placeholder="logradouro"
-              sizeMax={12}
-              sizeValue={6}
-              name="logradouro"
-            />
-          </Grupo01>
-          <Grupo01>
-            <InputPandora
-              titulo="Numero residencial"
-              placeholder="digite o numero"
-              sizeMax={12}
-              sizeValue={3}
-              name="numeroEndereco"
-            />
-            <InputPandora
-              titulo="Bairro"
-              placeholder="digite o bairro"
-              sizeMax={12}
-              sizeValue={6}
-              name="bairroEndereco"
-            />
-            <InputPandora
-              titulo="CEP"
-              placeholder="digite o CEP"
-              sizeMax={12}
-              sizeValue={3}
-              name="cepEndereco"
-            />
-          </Grupo01>
-          <Grupo01>
-            <InputPandora
-              titulo="Cidade"
-              placeholder="digite a cidade"
-              sizeMax={12}
-              sizeValue={6}
-              name="cidadeEndereco"
-            />
-            <InputPandora
-              titulo="Estado"
-              placeholder="digite o estado"
-              sizeMax={12}
-              sizeValue={6}
-              name="estadoEndereco"
-            />
-          </Grupo01>
-        </EnderecoEntrega>
+        {!mesmoEndereco ? (
+          <EnderecoEntrega>
+            <Titulo>Dados Endereço de Entrega</Titulo>
+
+            <Grupo01>
+              <SelectPandora
+                titulo="Tipo de Residencia"
+                sizeMax={12}
+                sizeValue={4}
+                dados={tipoEndereco}
+                name="tipoResidencia"
+              />
+
+              <SelectPandora
+                titulo="Tipo de logradouro"
+                sizeMax={12}
+                sizeValue={3}
+                dados={tiposLogradouros}
+                name="tipoLogradouro"
+              />
+              <InputPandora
+                titulo="Logradouro"
+                placeholder="logradouro"
+                sizeMax={12}
+                sizeValue={6}
+                name="logradouro"
+              />
+            </Grupo01>
+            <Grupo01>
+              <InputPandora
+                titulo="Numero residencial"
+                placeholder="digite o numero"
+                sizeMax={12}
+                sizeValue={3}
+                name="numeroEndereco"
+              />
+              <InputPandora
+                titulo="Bairro"
+                placeholder="digite o bairro"
+                sizeMax={12}
+                sizeValue={6}
+                name="bairroEndereco"
+              />
+              <InputPandora
+                titulo="CEP"
+                placeholder="digite o CEP"
+                sizeMax={12}
+                sizeValue={3}
+                name="cepEndereco"
+              />
+            </Grupo01>
+            <Grupo01>
+              <InputPandora
+                titulo="Cidade"
+                placeholder="digite a cidade"
+                sizeMax={12}
+                sizeValue={6}
+                name="cidadeEndereco"
+              />
+              <InputPandora
+                titulo="Estado"
+                placeholder="digite o estado"
+                sizeMax={12}
+                sizeValue={6}
+                name="estadoEndereco"
+              />
+            </Grupo01>
+          </EnderecoEntrega>
+        ) : (
+          ""
+        )}
 
         <CartaoCredio>
           <Titulo>Dados do seu cartão de crédito</Titulo>

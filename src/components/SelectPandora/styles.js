@@ -28,7 +28,7 @@ export const ContainerInput = styled.div`
     padding-left: 10px;
     width: 100%;
     height: 40px;
-    background-color: transparent;
+    background-color: white;
     border-radius: 5px;
   }
 
