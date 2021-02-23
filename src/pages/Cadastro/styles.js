@@ -29,6 +29,15 @@ export const Logo = styled.div`
 `;
 export const ImgLogo = styled.div``;
 
+export const Grupo01 = styled.div`
+  margin-top: 5px;
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+`;
+
 export const CaixaCadastro = styled.div`
   display: flex;
   flex-direction: column;
@@ -38,7 +47,7 @@ export const CaixaCadastro = styled.div`
   border-radius: 20px;
   border: 0.5px solid #b38c89;
   margin-top: 30px;
-  height: 500px;
+  height: auto;
   padding-left: 50px;
   padding-right: 50px;
   transition: background-color 0.2s;
@@ -49,12 +58,13 @@ export const CaixaCadastro = styled.div`
 
   button {
     width: 150px;
-    height: 50px;
+    height: 40px;
     background: #b38c89;
     color: white;
     border-radius: 50px;
     border: none;
     margin-top: 0px;
+    margin-bottom: 10px;
 
     &:hover {
       background: ${shade(0.2, "#b38c89")};

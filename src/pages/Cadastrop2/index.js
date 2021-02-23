@@ -139,7 +139,7 @@ export default function index() {
             value={mesmoEndereco}
             onChange={() => setMesmoEndereco(!mesmoEndereco)}
           ></input>
-          <span>
+          <span style={{ marginLeft: "10px" }}>
             {" "}
             Usar mesmo endereço de combrança como endereço de entrega
           </span>

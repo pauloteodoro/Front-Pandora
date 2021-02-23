@@ -38,7 +38,7 @@ export const CaixaLogin = styled.div`
   border-radius: 20px;
   border: 0.5px solid #b38c89;
   margin-top: 30px;
-  height: 550px;
+  height: auto;
   padding-left: 50px;
   padding-right: 50px;
   transition: background-color 0.2s;
@@ -54,7 +54,7 @@ export const CaixaLogin = styled.div`
     color: white;
     border-radius: 50px;
     border: none;
-    margin-top: 20px;
+    margin: 20px 0px;
 
     &:hover {
       background: ${shade(0.2, "#b38c89")};

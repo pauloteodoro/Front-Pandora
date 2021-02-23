@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { Link, useHistory } from "react-router-dom";
 import InputPandora from "../../components/InputPandora";
+import SelectPandora from "../../components/SelectPandora";
 import InputPandoraMedio from "../../components/InputPandoraMedio";
 import RadioButton from "../../components/RadioButton";
 import LOGO from "../../assets/LOGO.png";
@@ -11,14 +12,18 @@ import {
   Inf,
   Logo,
   ImgLogo,
-  ContainerPT2,
-  ContainerPT3,
-  RadioButtonDiv,
+  Grupo01,
 } from "./styles";
 
 export default function index() {
   const refFormulario = useRef();
   const history = useHistory();
+
+  const sexo = [
+    { id: 1, nome: "Masculino" },
+    { id: 2, nome: "Feminino" },
+    { id: 3, nome: "Outros" },
+  ];
 
   // function cadastrar() {
   //   var formData = new FormData(refFormulario.current);
@@ -37,10 +42,10 @@ export default function index() {
 
   return (
     <Container>
-      {/* <Inf>
+      <Inf>
         Devolução grátis em até 25 dias | 40% de desconto em fretes acima de R$
         150,00 | Parcelamento em até 6x no cartão
-      </Inf> */}
+      </Inf>
 
       <Logo>
         <ImgLogo>
@@ -57,21 +62,32 @@ export default function index() {
           </span>
         </CaixaTitulos>
 
-        <InputPandora
-          titulo="Nome completo"
-          placeholder="digite seu nome completo"
-          sizeMax={12}
-          sizeValue={12}
-        />
+        <Grupo01>
+          <InputPandora
+            titulo="Nome completo"
+            placeholder="digite seu nome completo"
+            sizeMax={12}
+            sizeValue={8}
+          />
 
-        <InputPandora
-          titulo="E-mail"
-          placeholder="digite seu e-mail (email@email.dominio)"
-          type="email"
-          sizeMax={12}
-          sizeValue={12}
-        />
+          <SelectPandora
+            titulo="Nome completo"
+            placeholder="digite seu nome completo"
+            sizeMax={12}
+            sizeValue={4}
+            dados={sexo}
+          />
+        </Grupo01>
 
+        <Grupo01>
+          <InputPandora
+            titulo="E-mail"
+            placeholder="digite seu e-mail (email@email.dominio)"
+            type="email"
+            sizeMax={12}
+            sizeValue={12}
+          />
+        </Grupo01>
         {/* <InputPandora
           titulo="CPF"
           placeholder="999.999.999-99"
@@ -79,7 +95,7 @@ export default function index() {
           sizeValue={12}
         /> */}
 
-        <div style={{ display: "flex", width: "100vh" }}>
+        <Grupo01>
           <InputPandora
             titulo="CPF"
             placeholder="999.999.999-99"
@@ -92,30 +108,9 @@ export default function index() {
             sizeMax={12}
             sizeValue={6}
           />
-        </div>
+        </Grupo01>
 
-        {/* <ContainerPT2>
-          <div>
-            <InputPandoraMedio
-              titulo="Telefone celular"
-              placeholder="(xx) xxxxx-xxxx"
-              type="tel"
-            />
-
-          </div>
-        </ContainerPT2>
- */}
-        {/* <ContainerPT3>
-          <div>
-            <InputPandoraMedio titulo="Senha" placeholder="Digite sua senha" />
-            <InputPandoraMedio
-              titulo="Confirmar senha"
-              placeholder="Confirme a senha"
-            />
-          </div>
-        </ContainerPT3> */}
-
-        <div style={{ display: "flex", width: "100vh" }}>
+        <Grupo01>
           <InputPandora
             titulo="Senha"
             sizeMax={12}
@@ -130,8 +125,7 @@ export default function index() {
             sizeValue={6}
             name="confirmacaoSenha"
           />
-        </div>
-
+        </Grupo01>
         <button onClick={handleTelaCadastroP}>CADASTRE-SE</button>
       </CaixaCadastro>
     </Container>
