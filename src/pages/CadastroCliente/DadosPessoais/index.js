@@ -70,15 +70,15 @@ export default function index() {
                     <img src={LOGO} alt="pandora" />
                 </ImgLogo>
             </Logo>
-            <span className="TituloBemVindo">Bem-vinda(o) ao cadastro PANDORA!</span>
-            <span>Para melhorar sua experiência em nosso site dividimos o cadastro em 4 etapas, junte-se a nós!</span>
+            {/*} <span className="TituloBemVindo">Bem-vinda(o) ao cadastro PANDORA!</span>
+            <span>Para melhorar sua experiência em nosso site dividimos o cadastro em 4 etapas, junte-se a nós!</span>*/}
             <CaixaCadastro>
                 <CaixaTitulos>
-                    <div>CRIE SUA CONTA PANDORA</div>
+                    <div>CRIE SUA CONTA PANDORA - ETAPA 1 DE 4</div>
                     <span>
                         tenha acesso a promoções exclusivas, fique por dentro das novidades
                         e acompanhe suas compras.
-          </span>
+                    </span>
                 </CaixaTitulos>
 
                 <Grupo01>
@@ -139,7 +139,7 @@ export default function index() {
                         <div>#1</div>
                         <div>Celular</div>
                         <div>(11) 95295-5307</div>
-                        <div><div><img src={excluir} alt="excluir" width="20px" height="20px" /></div></div>
+                        <div><div><img src={excluir} alt="excluir" width="15px" height="15px" /></div></div>
                     </ListarTelefones>
                 </Grupo01>
                 <button onClick={handleTelaCadastroP}>PROSSEGUI</button>

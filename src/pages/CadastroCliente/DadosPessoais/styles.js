@@ -54,7 +54,7 @@ export const Grupo01 = styled.div`
         width: 30px;
         height: 30px;
         font-size: 20px;
-        background: #03C998;
+        background: #b38c89;
         color: white;
         border-radius: 50px;
         border: none;
@@ -168,6 +168,7 @@ export const ContainerPT3 = styled.div`
 `;
 
 export const ListarTelefones = styled.div`
+  font-size: 14px;
   align-items: center;
   width: 100%;
   display:flex;
@@ -184,8 +185,8 @@ export const ListarTelefones = styled.div`
     div{
         &:hover {
             img{
-                width: 21px;
-                height: 21px;
+                width: 16px;
+                height: 16px;
                 cursor:pointer;
             }  
 
