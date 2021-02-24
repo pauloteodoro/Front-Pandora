@@ -66,7 +66,7 @@ export default function index() {
           </div>
         </TitulosPequenos>
 
-        <Link to="/cadastro">
+        <Link to="/cadastroCliente/DadosPessoais">
           <button>CRIAR CONTA</button>
         </Link>
       </CaixaLogin>
