@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import InputPandora from "../../../components/InputPandora";
 import SelectPandora from "../../../components/SelectPandora";
@@ -18,6 +18,10 @@ import {
 export default function index() {
     const refFormulario = useRef();
     const history = useHistory();
+
+    const [name, setName] = useState();
+    const [currentTelephone, setCurrentTelephone] = useState();
+    const [telephones, setTelephones] = useState(['ddsdsds']);
 
     const sexo = [
         { id: 1, nome: "Masculino" },
@@ -54,8 +58,34 @@ export default function index() {
     //     .then((response) => { });
     // }
 
-    function handleTelaCadastroP() {
-        history.push("/CadastroP2");
+    function handleTelaCadastro02() {
+        if (name) history.push("/CadastroCliente/Documentos");
+        else console.log('Preencha o campo de nome');
+    }
+
+    function handleChange(e) {
+        if (e.target.name == "fullName") setName(e.target.value);
+        if (e.target.name == "phone") setCurrentTelephone(e.target.value);
+    };
+
+    function addTelephone() {
+        console.log(currentTelephone);
+        let telephonesArray = telephones;
+        telephonesArray.push(currentTelephone);
+        setTelephones(telephonesArray);
+    }
+
+    function renderTelephones() {
+        telephones.forEach(telephone => {
+            return (
+                <>
+                    <div>#1</div>
+                    <div>Celular</div>
+                    <div>{telephone}</div>
+                    <div><div><img src={excluir} alt="excluir" width="15px" height="15px" /></div></div>
+                </>
+            );
+        });
     }
 
     return (
@@ -87,6 +117,8 @@ export default function index() {
                         placeholder="digite seu nome completo"
                         sizeMax={12}
                         sizeValue={8}
+                        name="fullName"
+                        onChange={handleChange}
                     />
 
                     <SelectPandora
@@ -126,23 +158,38 @@ export default function index() {
                         placeholder="Preencha telefone"
                         sizeMax={12}
                         sizeValue={6}
+                        name="phone"
+                        onChange={handleChange}
                     />
                 </Grupo01>
                 <Grupo01>
                     <div className="AdicionarTelefone">
-                        <button onClick={handleTelaCadastroP}>+</button>
+                        <button onClick={addTelephone}>+</button>
                     </div>
                 </Grupo01>
                 <span>Lista de Telefones para contato:</span>
                 <Grupo01>
                     <ListarTelefones>
-                        <div>#1</div>
-                        <div>Celular</div>
-                        <div>(11) 95295-5307</div>
-                        <div><div><img src={excluir} alt="excluir" width="15px" height="15px" /></div></div>
+                        {renderTelephones()}
                     </ListarTelefones>
                 </Grupo01>
-                <button onClick={handleTelaCadastroP}>PROSSEGUI</button>
+                <Grupo01>
+                    <InputPandora
+                        titulo="Senha"
+                        sizeMax={12}
+                        sizeValue={6}
+                        type="password"
+                        name="senha"
+                    />
+                    <InputPandora
+                        titulo="Confirmação de senha"
+                        type={"password"}
+                        sizeMax={12}
+                        sizeValue={6}
+                        name="confirmacaoSenha"
+                    />
+                </Grupo01>
+                <button onClick={handleTelaCadastro02}>PROSSEGUI</button>
             </CaixaCadastro>
         </Container>
     );

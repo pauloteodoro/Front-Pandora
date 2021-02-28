@@ -11,6 +11,7 @@ export default function index({
   sizeValue,
   sizeMax,
   name,
+  onChange
 }) {
   const [focus, setFocus] = useState(false);
 
@@ -25,6 +26,8 @@ export default function index({
             onBlur={() => setFocus(false)}
             type={type}
             placeholder={placeholder}
+            name={name}
+            onChange={onChange}
           ></input>
         </ContainerInput>
       </Container>

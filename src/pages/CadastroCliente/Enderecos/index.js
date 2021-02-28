@@ -1,8 +1,9 @@
 import React, { useRef, useState } from "react";
-import { Link } from "react-router-dom";
-import SelectPandora from "../../components/SelectPandora";
-import InputPandora from "../../components/InputPandora";
-import LOGO from "../../assets/LOGO.png";
+import { Link, useHistory } from "react-router-dom";
+import SelectPandora from "../../../components/SelectPandora";
+import InputPandora from "../../../components/InputPandora";
+import LOGO from "../../../assets/LOGO.png";
+import excluir from "../../../assets/excluir.png";
 import {
   Container,
   CaixaCadastro,
@@ -14,8 +15,8 @@ import {
   EnderecoCobranca,
   Grupo01,
   EnderecoEntrega,
-  CartaoCredio,
   Titulo,
+  ListarEnderecos,
 } from "./styles";
 
 export default function index() {
@@ -42,6 +43,10 @@ export default function index() {
   ];
 
   const [mesmoEndereco, setMesmoEndereco] = useState(false);
+   const history = useHistory();
+  function handleTelaCadastro04() {
+    history.push("/cadastroCliente/Cartao");
+  }
 
   return (
     <Container>
@@ -54,13 +59,9 @@ export default function index() {
           <img src={LOGO} alt="pandora" />
         </ImgLogo>
       </Logo>
-      <MensagemInicial>
-        Calma! Seu cadastro Pandora está quase no fim, só precisamos de mais
-        algumas informações para concluir.
-      </MensagemInicial>
       <CaixaCadastro>
         <CaixaTitulos>
-          <div>FINALIZE SUA CONTA PANDORA</div>
+          <div>CRIE SUA CONTA PANDORA - ETAPA 3 DE 4</div>
           <span>
             Tenha acesso a promoções exclusivas, fique por dentro das novidades
             e acompanhe suas compras.
@@ -132,7 +133,28 @@ export default function index() {
             />
           </Grupo01>
         </EnderecoCobranca>
-
+        <Grupo01>
+          <div className="AdicionarEnderecos">
+            <button onClick={handleTelaCadastro04}>+</button>
+          </div>
+        </Grupo01>
+        <Grupo01>
+          <ListarEnderecos>
+            <div>#1</div>
+            <div>AV</div>
+            <div>Francisco de Goes Araujo</div>
+            <div>406</div>
+            <div>Guaianazes</div>
+            <div>08452490</div>
+            <div>São Paulo</div>
+            <div>SP</div>
+            <div>
+              <div>
+                <img src={excluir} alt="excluir" width="15px" height="15px" />
+                </div>
+              </div>
+          </ListarEnderecos>
+        </Grupo01>
         <div style={{ margin: "10px" }}>
           <input
             type="checkbox"
@@ -141,7 +163,7 @@ export default function index() {
           ></input>
           <span style={{ marginLeft: "10px" }}>
             {" "}
-            Usar mesmo endereço de cobrança como endereço de entrega
+            Usar os mesmos endereços de cobrança como endereços de entrega
           </span>
         </div>
 
@@ -212,46 +234,16 @@ export default function index() {
                 name="estadoEndereco"
               />
             </Grupo01>
+            <Grupo01>
+              <div className="AdicionarEnderecos">
+                <button onClick={handleTelaCadastro04}>+</button>
+              </div>
+            </Grupo01>
           </EnderecoEntrega>
         ) : (
             ""
           )}
-
-        <CartaoCredio>
-          <Titulo>Dados do seu cartão de crédito</Titulo>
-          <InputPandora
-            titulo="Nome impresso no cartão"
-            placeholder="digite o nome"
-            sizeMax={12}
-            sizeValue={12}
-          />
-          <Grupo01>
-            <InputPandora
-              titulo="Número do cartão"
-              placeholder="número cartão"
-              sizeMax={12}
-              sizeValue={6}
-            />
-            <SelectPandora
-              titulo="Bandeira"
-              dados={bandeirasCartao}
-              sizeMax={12}
-              sizeValue={3}
-            />
-
-            <InputPandora
-              titulo="Código de Segurança"
-              placeholder=" "
-              sizeMax={12}
-              sizeValue={3}
-            />
-          </Grupo01>
-          <Grupo01></Grupo01>
-        </CartaoCredio>
-
-        <Link to="/">
-          <button>FINALIZAR CADASTRO</button>
-        </Link>
+        <button onClick={handleTelaCadastro04}> PROSSEGUIR</button>
       </CaixaCadastro>
     </Container>
   );
