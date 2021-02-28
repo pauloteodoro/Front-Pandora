@@ -94,9 +94,6 @@ export const Corpo = styled.div`
      a:active {
          color: #D66660;
      }
-      span{
-        color: #D66660;
-      }
       margin-top: 20px;
       img{
         margin-top: 5px;

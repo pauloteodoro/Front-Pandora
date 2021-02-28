@@ -137,7 +137,7 @@ export default function index() {
                         <img src={Usuario2} alt="pedidos" width="50px" height="50px" />
                         <div className="textos">
                             <div>
-                                <span>MEUS DADOS</span>
+                                <Link to="/PerfilCliente/MeusDados">MEUS DADOS</Link>
                             </div>
                             <div>
                                 <div className="teste">
@@ -161,6 +161,15 @@ export default function index() {
                             </div>
                         </div>
                         <img className="seta" src={Seta} alt="pedidos" width="20px" height="20px" />
+                    </div>
+                </div>
+
+                <div className="TituloInicical">
+                    <div className="Ola"> Olá, Thais! </div>
+                    <br></br>
+                    <div className="TextoDescricao">
+                        Aqui é onde você poderá visualizar e editar todos os dados da sua conta, como:
+                        seus pedidos, atualizar suas informações ou senha, gerenciar seus pedidos e muito mais.
                     </div>
                 </div>
             </Corpo>

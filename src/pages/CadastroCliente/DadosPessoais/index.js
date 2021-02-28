@@ -47,17 +47,6 @@ export default function index() {
         { id: 3, nome: "Fax" },
     ];
 
-    // function cadastrar() {
-    //   var formData = new FormData(refFormulario.current);
-    //   api
-    //     .post("url/endpoint", formData, {
-    //       headers: {
-    //         "Content-Type": "multipart/form-data",
-    //       },
-    //     })
-    //     .then((response) => { });
-    // }
-
     function handleTelaCadastro02() {
         if (name) history.push("/CadastroCliente/Documentos");
         else console.log('Preencha o campo de nome');
