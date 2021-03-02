@@ -17,11 +17,12 @@ import {
 
 export default function index() {
     const refFormulario = useRef();
+
     const history = useHistory();
 
     const [name, setName] = useState();
-    const [currentTelephone, setCurrentTelephone] = useState();
-    const [telephones, setTelephones] = useState(['ddsdsds']);
+    const [phone, setPhone] = useState();
+    const [telephones, setTelephones] = useState([]);
 
     const sexo = [
         { id: 1, nome: "Masculino" },
@@ -47,34 +48,44 @@ export default function index() {
         { id: 3, nome: "Fax" },
     ];
 
+    // useEffect(() => {
+    //     renderTelephones();
+    // }, [telephones]);
+
     function handleTelaCadastro02() {
         if (name) history.push("/CadastroCliente/Documentos");
-        else console.log('Preencha o campo de nome');
+        else alert("Preencha todos os campos");
     }
 
-    function handleChange(e) {
+    const handleChange = (e) => {
         if (e.target.name == "fullName") setName(e.target.value);
-        if (e.target.name == "phone") setCurrentTelephone(e.target.value);
+        if (e.target.name == "phone") setPhone(e.target.value);
+        console.log('digitando...', e.target.name);
     };
 
-    function addTelephone() {
-        console.log(currentTelephone);
-        let telephonesArray = telephones;
-        telephonesArray.push(currentTelephone);
-        setTelephones(telephonesArray);
+    const addTelephone = () => {
+        if (phone.trim().length) {
+            let telephonesArray = telephones;
+            telephonesArray.push(phone);
+            setTelephones(telephonesArray);
+            console.log('skdjsjks');
+        }
     }
 
-    function renderTelephones() {
-        telephones.forEach(telephone => {
-            return (
-                <>
+    const renderTelephones = () => {
+        let telephonesArray = [];
+        telephones.forEach((telephone, index) => {
+            telephonesArray.push(
+                <div key={'phone' + index}>
                     <div>#1</div>
                     <div>Celular</div>
                     <div>{telephone}</div>
                     <div><div><img src={excluir} alt="excluir" width="15px" height="15px" /></div></div>
-                </>
+                </div>
             );
         });
+        // console.log('RENDERIZA TELEFONES');
+        return telephonesArray;
     }
 
     return (
@@ -125,6 +136,8 @@ export default function index() {
                         type="email"
                         sizeMax={12}
                         sizeValue={8}
+                        name="email"
+                        onChange={handleChange}
                     />
 
                     <SelectPandora
@@ -153,7 +166,8 @@ export default function index() {
                 </Grupo01>
                 <Grupo01>
                     <div className="AdicionarTelefone">
-                        <button onClick={addTelephone}>+</button>
+                        <button onClick={() => addTelephone()}>+</button>
+                        {/* <button onClick={handleTelaCadastro02}>+</button> */}
                     </div>
                 </Grupo01>
                 <span>Lista de Telefones para contato:</span>
@@ -169,6 +183,7 @@ export default function index() {
                         sizeValue={6}
                         type="password"
                         name="senha"
+                        required
                     />
                     <InputPandora
                         titulo="Confirmação de senha"
@@ -176,6 +191,7 @@ export default function index() {
                         sizeMax={12}
                         sizeValue={6}
                         name="confirmacaoSenha"
+                        required
                     />
                 </Grupo01>
                 <button onClick={handleTelaCadastro02}>PROSSEGUI</button>

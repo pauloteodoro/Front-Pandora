@@ -238,6 +238,10 @@ export const Verificacao = styled.div`
   padding-bottom: 20px;
   }
 `;
-
+export const Card = styled.div`
+  height: 50px;
+  width: 50%;
+  background: red;
+`;
 
 

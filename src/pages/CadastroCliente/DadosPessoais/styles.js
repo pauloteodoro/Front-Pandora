@@ -172,11 +172,14 @@ export const ListarTelefones = styled.div`
   align-items: center;
   width: 100%;
   display:flex;
-  flex-direction: row;
+  flex-direction: Row;
   justify-content: space-between;
   border-bottom: 0.2px solid gray;
   margin-bottom:20px;
   div{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
     margin-bottom:2px;
     padding-top: 10px;
     padding-right: 15px;

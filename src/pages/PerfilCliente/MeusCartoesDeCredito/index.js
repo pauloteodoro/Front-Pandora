@@ -28,7 +28,8 @@ import {
     Busca,
     Corpo,
     Rodape,
-    Verificacao
+    Verificacao,
+    Card,
 } from "./styles";
 
 export default function index() {
@@ -164,6 +165,9 @@ export default function index() {
                         <img className="seta" src={Seta} alt="pedidos" width="20px" height="20px" />
                     </div>
                 </div>
+                <Card>
+                    teste
+                </Card>
             </Corpo>
             <Rodape>
                 <div className="RedesSociais">
