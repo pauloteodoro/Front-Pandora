@@ -10,9 +10,8 @@ export default function index({
   sizeMax,
   optionPadrao,
   dados,
+  name,
 }) {
-  const [focus, setFocus] = useState(false);
-
   let options = null;
 
   if (dados) {
@@ -32,8 +31,8 @@ export default function index({
       <Container>
         <div>{titulo}</div>
         <ContainerInput>
-          <select>
-            <option value="">{optionPadrao}</option>
+          <select name={name}>
+            <option value={0}>{optionPadrao}</option>
             {options}
           </select>
         </ContainerInput>

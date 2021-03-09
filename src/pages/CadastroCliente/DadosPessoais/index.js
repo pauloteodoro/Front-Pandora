@@ -1,201 +1,202 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import InputPandora from "../../../components/InputPandora";
 import SelectPandora from "../../../components/SelectPandora";
 import LOGO from "../../../assets/LOGO.png";
 import excluir from "../../../assets/excluir.png";
+
+import api from "../../../services";
+
 import {
-    Container,
-    CaixaCadastro,
-    CaixaTitulos,
-    Inf,
-    Logo,
-    ImgLogo,
-    Grupo01,
-    ListarTelefones,
+  Container,
+  CaixaCadastro,
+  CaixaTitulos,
+  Inf,
+  Logo,
+  ImgLogo,
+  Grupo01,
+  ListarTelefones,
 } from "./styles";
 
 export default function index() {
-    const refFormulario = useRef();
+  const refFormulario = useRef();
+  const [listaValidacoes, setListaValidacoes] = useState(null);
 
-    const history = useHistory();
+  const history = useHistory();
 
-    const [name, setName] = useState();
-    const [phone, setPhone] = useState();
-    const [telephones, setTelephones] = useState([]);
+  const [telephones, setTelephones] = useState([]);
 
-    const sexo = [
-        { id: 1, nome: "Masculino" },
-        { id: 2, nome: "Feminino" },
-        { id: 3, nome: "Outros" },
-    ];
+  const sexo = [
+    { id: 1, nome: "Masculino" },
+    { id: 2, nome: "Feminino" },
+    { id: 3, nome: "Outros" },
+  ];
 
-    const tipoDocumento = [
-        { id: 2, nome: "RG" },
-        { id: 3, nome: "Passaporte" },
-        { id: 4, nome: "Nenhum" },
-    ];
+  const tipoDocumento = [
+    { id: 2, nome: "RG" },
+    { id: 3, nome: "Passaporte" },
+    { id: 4, nome: "Nenhum" },
+  ];
 
-    const tipoCliente = [
-        { id: 1, nome: "Administrador" },
-        { id: 2, nome: "Vendedor" },
-        { id: 3, nome: "Comprador" },
-    ];
+  function listaTelefones() {}
 
-    const tipoTelefone = [
-        { id: 1, nome: "Celular" },
-        { id: 2, nome: "Fixo" },
-        { id: 3, nome: "Fax" },
-    ];
+  const tipoCliente = [
+    { id: 1, nome: "Administrador" },
+    { id: 2, nome: "Vendedor" },
+    { id: 3, nome: "Comprador" },
+  ];
 
-    // useEffect(() => {
-    //     renderTelephones();
-    // }, [telephones]);
+  const tipoTelefone = [
+    { id: 1, nome: "Celular" },
+    { id: 2, nome: "Fixo" },
+    { id: 3, nome: "Fax" },
+  ];
 
-    function handleTelaCadastro02() {
-        if (name) history.push("/CadastroCliente/Documentos");
-        else alert("Preencha todos os campos");
-    }
+  function handleTelaCadastroP() {
+    history.push("/cadastroCliente/Documentos");
+  }
 
-    const handleChange = (e) => {
-        if (e.target.name == "fullName") setName(e.target.value);
-        if (e.target.name == "phone") setPhone(e.target.value);
-        console.log('digitando...', e.target.name);
-    };
-
-    const addTelephone = () => {
-        if (phone.trim().length) {
-            let telephonesArray = telephones;
-            telephonesArray.push(phone);
-            setTelephones(telephonesArray);
-            console.log('skdjsjks');
+  function cadastrar() {
+    var formData = new FormData(refFormulario.current);
+    api
+      .post("api/Pessoas", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then((response) => {
+        if (response.data.cadastradoOk) {
+          setListaValidacoes(null);
+          handleTelaCadastroP();
+        } else {
+          setListaValidacoes(response.data.listaErros);
         }
-    }
+      });
+  }
 
-    const renderTelephones = () => {
-        let telephonesArray = [];
-        telephones.forEach((telephone, index) => {
-            telephonesArray.push(
-                <div key={'phone' + index}>
-                    <div>#1</div>
-                    <div>Celular</div>
-                    <div>{telephone}</div>
-                    <div><div><img src={excluir} alt="excluir" width="15px" height="15px" /></div></div>
-                </div>
-            );
-        });
-        // console.log('RENDERIZA TELEFONES');
-        return telephonesArray;
-    }
+  return (
+    <Container>
+      <Inf>
+        Devolução grátis em até 25 dias | 40% de desconto em fretes acima de R$
+        150,00 | Parcelamento em até 6x no cartão
+      </Inf>
 
-    return (
-        <Container>
-            <Inf>
-                Devolução grátis em até 25 dias | 40% de desconto em fretes acima de R$
-                150,00 | Parcelamento em até 6x no cartão
-             </Inf>
-
-            <Logo>
-                <ImgLogo>
-                    <img src={LOGO} alt="pandora" />
-                </ImgLogo>
-            </Logo>
-            {/*} <span className="TituloBemVindo">Bem-vinda(o) ao cadastro PANDORA!</span>
+      <Logo>
+        <ImgLogo>
+          <img src={LOGO} alt="pandora" />
+        </ImgLogo>
+      </Logo>
+      {/*} <span className="TituloBemVindo">Bem-vinda(o) ao cadastro PANDORA!</span>
             <span>Para melhorar sua experiência em nosso site dividimos o cadastro em 4 etapas, junte-se a nós!</span>*/}
-            <CaixaCadastro>
-                <CaixaTitulos>
-                    <div>CRIE SUA CONTA PANDORA - ETAPA 1 DE 4</div>
-                    <span>
-                        tenha acesso a promoções exclusivas, fique por dentro das novidades
-                        e acompanhe suas compras.
-                    </span>
-                </CaixaTitulos>
 
-                <Grupo01>
-                    <InputPandora
-                        titulo="Nome completo"
-                        placeholder="digite seu nome completo"
-                        sizeMax={12}
-                        sizeValue={8}
-                        name="fullName"
-                        onChange={handleChange}
-                    />
+      <CaixaCadastro>
+        <CaixaTitulos>
+          <div>CRIE SUA CONTA PANDORA - ETAPA 1 DE 4</div>
+          <span>
+            tenha acesso a promoções exclusivas, fique por dentro das novidades
+            e acompanhe suas compras.
+          </span>
+        </CaixaTitulos>
 
-                    <SelectPandora
-                        titulo="Sexo"
-                        sizeMax={12}
-                        sizeValue={4}
-                        dados={sexo}
-                    />
-                </Grupo01>
+        {listaValidacoes
+          ? listaValidacoes.map((itens) => {
+              return <div>{itens}</div>;
+            })
+          : ""}
 
-                <Grupo01>
-                    <InputPandora
-                        titulo="E-mail"
-                        placeholder="digite seu e-mail (email@email.dominio)"
-                        type="email"
-                        sizeMax={12}
-                        sizeValue={8}
-                        name="email"
-                        onChange={handleChange}
-                    />
+        <form style={{ width: "100%" }} ref={refFormulario}>
+          <Grupo01>
+            <InputPandora
+              titulo="Nome completo"
+              placeholder="digite seu nome completo"
+              sizeMax={12}
+              sizeValue={8}
+              name="nome"
+            />
 
-                    <SelectPandora
-                        titulo="Tipo cliente"
-                        sizeMax={12}
-                        sizeValue={4}
-                        dados={tipoCliente}
-                    />
-                </Grupo01>
+            <SelectPandora
+              titulo="Sexo"
+              sizeMax={12}
+              sizeValue={4}
+              dados={sexo}
+              name="sexoClienteID"
+            />
+          </Grupo01>
 
-                <Grupo01>
-                    <SelectPandora
-                        titulo="Tipo Telefone"
-                        sizeMax={12}
-                        sizeValue={6}
-                        dados={tipoTelefone}
-                    />
-                    <InputPandora
-                        titulo="Telefone"
-                        placeholder="Preencha telefone"
-                        sizeMax={12}
-                        sizeValue={6}
-                        name="phone"
-                        onChange={handleChange}
-                    />
-                </Grupo01>
-                <Grupo01>
-                    <div className="AdicionarTelefone">
-                        <button onClick={() => addTelephone()}>+</button>
-                        {/* <button onClick={handleTelaCadastro02}>+</button> */}
-                    </div>
-                </Grupo01>
-                <span>Lista de Telefones para contato:</span>
-                <Grupo01>
-                    <ListarTelefones>
-                        {renderTelephones()}
-                    </ListarTelefones>
-                </Grupo01>
-                <Grupo01>
-                    <InputPandora
-                        titulo="Senha"
-                        sizeMax={12}
-                        sizeValue={6}
-                        type="password"
-                        name="senha"
-                        required
-                    />
-                    <InputPandora
-                        titulo="Confirmação de senha"
-                        type={"password"}
-                        sizeMax={12}
-                        sizeValue={6}
-                        name="confirmacaoSenha"
-                        required
-                    />
-                </Grupo01>
-                <button onClick={handleTelaCadastro02}>PROSSEGUI</button>
-            </CaixaCadastro>
-        </Container>
-    );
+          <Grupo01>
+            <InputPandora
+              titulo="E-mail"
+              placeholder="digite seu e-mail"
+              type="email"
+              sizeMax={12}
+              sizeValue={8}
+              name="email"
+            />
+
+            <SelectPandora
+              titulo="Tipo cliente"
+              sizeMax={12}
+              sizeValue={4}
+              dados={tipoCliente}
+              name="tipoClienteID"
+            />
+          </Grupo01>
+
+          <Grupo01>
+            <SelectPandora
+              titulo="Tipo Telefone"
+              sizeMax={12}
+              sizeValue={6}
+              dados={tipoTelefone}
+              name="tipoTelefoneID"
+            />
+            <InputPandora
+              titulo="Telefone"
+              placeholder="Preencha telefone"
+              sizeMax={12}
+              sizeValue={6}
+              name="numeroTelefone"
+            />
+          </Grupo01>
+
+          <Grupo01>
+            <SelectPandora
+              titulo="Tipo Telefone"
+              sizeMax={12}
+              sizeValue={6}
+              dados={tipoTelefone}
+              name="tipoTelefoneID"
+            />
+            <InputPandora
+              titulo="Telefone"
+              placeholder="Preencha telefone"
+              sizeMax={12}
+              sizeValue={6}
+              name="numeroTelefone"
+            />
+          </Grupo01>
+
+          <span>Lista de Telefones para contato:</span>
+
+          <Grupo01>
+            <InputPandora
+              titulo="Senha"
+              sizeMax={12}
+              sizeValue={6}
+              type="password"
+              name="senha"
+            />
+            <InputPandora
+              titulo="Confirmação de senha"
+              type={"password"}
+              sizeMax={12}
+              sizeValue={6}
+              name="confirmacaoSenha"
+            />
+          </Grupo01>
+        </form>
+        <button onClick={cadastrar}>PROSSEGUI</button>
+      </CaixaCadastro>
+    </Container>
+  );
 }

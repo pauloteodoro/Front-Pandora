@@ -2,8 +2,8 @@ import React, { useRef } from "react";
 import { Link, useHistory } from "react-router-dom";
 import InputPandora from "../../components/InputPandora";
 import SelectPandora from "../../components/SelectPandora";
-import InputPandoraMedio from "../../components/InputPandoraMedio";
-import RadioButton from "../../components/RadioButton";
+import api from "../../services/index";
+
 import LOGO from "../../assets/LOGO.png";
 import {
   Container,
@@ -43,16 +43,16 @@ export default function index() {
     { id: 3, nome: "Fax" },
   ];
 
-  // function cadastrar() {
-  //   var formData = new FormData(refFormulario.current);
-  //   api
-  //     .post("url/endpoint", formData, {
-  //       headers: {
-  //         "Content-Type": "multipart/form-data",
-  //       },
-  //     })
-  //     .then((response) => { });
-  // }
+  function cadastrar() {
+    var formData = new FormData(refFormulario.current);
+    api
+      .post("api/Pessoas", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then((response) => {});
+  }
 
   function handleTelaCadastroP() {
     history.push("/CadastroP2");
@@ -80,111 +80,113 @@ export default function index() {
           </span>
         </CaixaTitulos>
 
-        <Grupo01>
-          <InputPandora
-            titulo="Nome completo"
-            placeholder="digite seu nome completo"
-            sizeMax={12}
-            sizeValue={8}
-          />
+        <form ref={refFormulario}>
+          <Grupo01>
+            <InputPandora
+              titulo="Nome completo"
+              placeholder="digite seu nome completo"
+              sizeMax={12}
+              sizeValue={8}
+            />
 
-          <SelectPandora
-            titulo="Sexo"
-            sizeMax={12}
-            sizeValue={4}
-            dados={sexo}
-          />
-        </Grupo01>
+            <SelectPandora
+              titulo="Sexo"
+              sizeMax={12}
+              sizeValue={4}
+              dados={sexo}
+            />
+          </Grupo01>
 
-        <Grupo01>
-          <InputPandora
-            titulo="E-mail"
-            placeholder="digite seu e-mail (email@email.dominio)"
-            type="email"
-            sizeMax={12}
-            sizeValue={8}
-          />
+          <Grupo01>
+            <InputPandora
+              titulo="E-mail"
+              placeholder="digite seu e-mail (email@email.dominio)"
+              type="email"
+              sizeMax={12}
+              sizeValue={8}
+            />
 
-          <SelectPandora
-            titulo="Tipo cliente"
-            sizeMax={12}
-            sizeValue={4}
-            dados={tipoCliente}
-          />
-        </Grupo01>
+            <SelectPandora
+              titulo="Tipo cliente"
+              sizeMax={12}
+              sizeValue={4}
+              dados={tipoCliente}
+            />
+          </Grupo01>
 
-        <Grupo01>
-          <SelectPandora
-            titulo="Tipo Telefone"
-            sizeMax={12}
-            sizeValue={6}
-            dados={tipoTelefone}
-          />
-          <InputPandora
-            titulo="Telefone"
-            placeholder="Preencha telefone"
-            sizeMax={12}
-            sizeValue={6}
-          />
-        </Grupo01>
+          <Grupo01>
+            <SelectPandora
+              titulo="Tipo Telefone"
+              sizeMax={12}
+              sizeValue={6}
+              dados={tipoTelefone}
+            />
+            <InputPandora
+              titulo="Telefone"
+              placeholder="Preencha telefone"
+              sizeMax={12}
+              sizeValue={6}
+            />
+          </Grupo01>
 
-        <Grupo01>
-          <InputPandora
-            titulo="CPF"
-            placeholder="999.999.999-99"
-            sizeMax={12}
-            sizeValue={6}
-          />
-          <InputPandora
-            titulo="Data nascimento"
-            type={"date"}
-            sizeMax={12}
-            sizeValue={6}
-          />
-        </Grupo01>
+          <Grupo01>
+            <InputPandora
+              titulo="CPF"
+              placeholder="999.999.999-99"
+              sizeMax={12}
+              sizeValue={6}
+            />
+            <InputPandora
+              titulo="Data nascimento"
+              type={"date"}
+              sizeMax={12}
+              sizeValue={6}
+            />
+          </Grupo01>
 
-        <Grupo01>
-          <SelectPandora
-            titulo="Tipo documento"
-            sizeMax={12}
-            sizeValue={6}
-            dados={tipoDocumento}
-          />
-          <InputPandora
-            titulo="Documento"
-            placeholder="Preencha documento"
-            type="email"
-            sizeMax={12}
-            sizeValue={6}
-          />
-        </Grupo01>
+          <Grupo01>
+            <SelectPandora
+              titulo="Tipo documento"
+              sizeMax={12}
+              sizeValue={6}
+              dados={tipoDocumento}
+            />
+            <InputPandora
+              titulo="Documento"
+              placeholder="Preencha documento"
+              type="email"
+              sizeMax={12}
+              sizeValue={6}
+            />
+          </Grupo01>
 
-        {/* <button style={{ height: "15px" }}>Adicionar mais</button> */}
+          {/* <button style={{ height: "15px" }}>Adicionar mais</button> */}
 
-        {/* <InputPandora
+          {/* <InputPandora
           titulo="CPF"
           placeholder="999.999.999-99"
           sizeMax={12}
           sizeValue={12}
         /> */}
 
-        <Grupo01>
-          <InputPandora
-            titulo="Senha"
-            sizeMax={12}
-            sizeValue={6}
-            type="password"
-            name="senha"
-          />
-          <InputPandora
-            titulo="Confirmação de senha"
-            type={"password"}
-            sizeMax={12}
-            sizeValue={6}
-            name="confirmacaoSenha"
-          />
-        </Grupo01>
-        <button onClick={handleTelaCadastroP}>CADASTRE-SE</button>
+          <Grupo01>
+            <InputPandora
+              titulo="Senha"
+              sizeMax={12}
+              sizeValue={6}
+              type="password"
+              name="senha"
+            />
+            <InputPandora
+              titulo="Confirmação de senha"
+              type={"password"}
+              sizeMax={12}
+              sizeValue={6}
+              name="confirmacaoSenha"
+            />
+          </Grupo01>
+          <button onClick={cadastrar}>CADASTRE-SE</button>
+        </form>
       </CaixaCadastro>
     </Container>
   );

@@ -7,14 +7,13 @@ export const Container = styled.div`
   align-items: center;
   min-width: 100%;
   min-height: 100vh;
-  
-  span.TituloBemVindo{
+
+  span.TituloBemVindo {
     text-align: center;
     color: #d66660;
     margin-top: 30px;
     margin-bottom: 20px;
     font-size: 18px;
-  }
   }
 `;
 
@@ -46,27 +45,22 @@ export const Grupo01 = styled.div`
   flex-direction: row;
   width: 100%;
   justify-content: space-between;
-  div.AdicionarTelefone{
-    position: relative;
-    left: 95%;
-    
-    button {
-        width: 30px;
-        height: 30px;
-        font-size: 20px;
-        background: #b38c89;
-        color: white;
-        border-radius: 50px;
-        border: none;
-        margin-top: 0px;
-        margin-bottom: 10px;
 
-        &:hover {
-        background: ${shade(0.2, "#b38c89")};
-        }
+  button {
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    background: #b38c89;
+    color: white;
+    border-radius: 50px;
+    border: none;
+    margin-top: 0px;
+    margin-bottom: 10px;
+
+    &:hover {
+      background: ${shade(0.2, "#b38c89")};
     }
   }
-
 `;
 
 export const CaixaCadastro = styled.div`
@@ -171,31 +165,9 @@ export const ListarTelefones = styled.div`
   font-size: 14px;
   align-items: center;
   width: 100%;
-  display:flex;
+  display: flex;
   flex-direction: Row;
   justify-content: space-between;
   border-bottom: 0.2px solid gray;
-  margin-bottom:20px;
-  div{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom:2px;
-    padding-top: 10px;
-    padding-right: 15px;
-    padding-left: 15px;
-
-    div{
-        &:hover {
-            img{
-                width: 16px;
-                height: 16px;
-                cursor:pointer;
-            }  
-
-          }
-    }
-   
-  }
-
+  margin-bottom: 20px;
 `;
